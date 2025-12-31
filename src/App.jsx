@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/navbar';
 import Home from './Pages/home';
 import './App.css'
 const App = () => {
   return (
-    <BrowserRouter basename="/Portofolio">
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
