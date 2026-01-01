@@ -48,3 +48,184 @@ button {
 button:hover {
   background-color: #ffa500;
 }
+
+
+/*******  Navbar Css ************/
+
+/* Navbar Container */
+.nav-container {
+  position: relative;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  border-radius: 0 0 15px 15px;
+
+  /* Subtle animated gradient */
+  background: linear-gradient(270deg, #1e1e1e, #7a7373, #a36161);
+  background-size: 200% 200%;
+  animation: navbarGradient 15s ease infinite;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.nav-container.scrolled {
+  padding: 10px 50px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+
+/* Navbar gradient animation */
+@keyframes navbarGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.nav-container {
+  position: relative;
+  z-index: 100;
+}
+
+.nav-container::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ffd700, #ffb700, #ffd700);
+  background-size: 200% 00%;
+  animation: borderGlow 6s linear infinite;
+  opacity: 0.4; /* make it subtle */
+  z-index: -1; /* behind navbar */
+}
+
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Optional: subtle hover glow on navbar links */
+.nav-links a span:hover {
+  color: #ffa500;
+  text-shadow: 0 0 8px #ffd700, 0 0 15px #ffb700;
+}
+
+/* Logo / Animated Name */
+.nav-logo {
+  font-family: 'Pacifico', cursive; /* Cursive font */
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffd700;
+  display: flex;
+}
+
+.nav-logo span {
+  display: inline-block;
+  cursor: default;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.nav-logo span:hover {
+  color: #ffa500;
+  transform: translateY(-5px) scale(1.2);
+  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffb700;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+.nav-links a {
+  margin-left: 25px;
+  font-weight: bold;
+  position: relative;
+}
+.nav-links a span::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #ffd700;
+  transition: width 0.3s;
+}
+.nav-links a span:hover::after,
+.nav-links a span.active-link::after {
+  width: 100%;
+}
+.nav-links a span:hover {
+  color: #ffa500;
+}
+
+/* Social Icons */
+.nav-social a {
+  margin-left: 15px;
+  color: #ffd700;
+  font-size: 1.2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+.nav-social a:hover {
+  color: #ffa500;
+  transform: scale(1.2);
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #ffd700;
+  transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    background-color: #1e1e1e;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s ease;
+  }
+  .nav-links.open {
+    right: 0;
+  }
+  .nav-links a {
+    margin: 20px 0;
+    font-size: 1.2rem;
+  }
+  .nav-social {
+    margin-top: 30px;
+    flex-direction: row;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
