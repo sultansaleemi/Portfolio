@@ -50,146 +50,207 @@ button:hover {
 }
 
 
-/*******  Navbar Css ************/
+/************ Navbar CSS ************/
 
 /* Navbar Container */
 .nav-container {
-  position: relative;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
-  border-radius: 0 0 15px 15px;
+  padding: 16px 48px;
 
-  /* Subtle animated gradient */
-  background: linear-gradient(270deg, #1e1e1e, #7a7373, #a36161);
-  background-size: 200% 200%;
-  animation: navbarGradient 15s ease infinite;
+  background: rgba(10, 14, 25, 0.88); /* Hero color scheme */
+  backdrop-filter: blur(12px);
 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.nav-container.scrolled {
-  padding: 10px 50px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
-}
-
-/* Navbar gradient animation */
-@keyframes navbarGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.nav-container {
-  position: relative;
-  z-index: 100;
-}
-
-.nav-container::before {
-  content: '';
+/* Orbit Background (multi-layer) */
+.nav-orbits {
   position: absolute;
-  top: -1px;
-  left: -1px;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  border-radius: 12px;
-  background: linear-gradient(90deg, #ffd700, #ffb700, #ffd700);
-  background-size: 200% 00%;
-  animation: borderGlow 6s linear infinite;
-  opacity: 0.4; /* make it subtle */
-  z-index: -1; /* behind navbar */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Orbit Background (multi-layer floating) */
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at top,
+   #7c7cff,
+    #8b5cf6,
+    transparent 70%);
+  filter: blur(5px);
+  opacity: 0.85;
+  animation: orbitFloat infinite linear;
+}
+
+/* Different positions, sizes, durations, and directions */
+.orbit-0 { width: 30px; height: 30px; top: 10%; left: 5%; animation-duration: 25s; animation-direction: alternate; }
+.orbit-1 { width: 30px; height: 30px; top: 30%; left: 90%; animation-duration: 30s; animation-direction: alternate-reverse; }
+.orbit-2 { width: 30px; height: 30px; top: 70%; left: 20%; animation-duration: 35s; animation-direction: alternate; }
+.orbit-3 { width: 30px; height: 30px; top: 50%; left: 50%; animation-duration: 40s; animation-direction: alternate-reverse; }
+.orbit-4 { width: 30px; height: 30px; top: 20%; left: 60%; animation-duration: 28s; animation-direction: alternate; }
+.orbit-5 { width: 30px; height: 30px; top: 80%; left: 80%; animation-duration: 32s; animation-direction: alternate-reverse; }
+.orbit-6 { width: 30px; height: 30px; top: 60%; left: 10%; animation-duration: 26s; animation-direction: alternate; }
+.orbit-7 { width: 30px; height: 30px; top: 40%; left: 30%; animation-duration: 34s; animation-direction: alternate-reverse; }
+.orbit-8 { width: 30px; height: 30px; top: 15%; left: 40%; animation-duration: 27s; animation-direction: alternate; }
+.orbit-9 { width: 30px; height: 30px; top: 85%; left: 25%; animation-duration: 38s; animation-direction: alternate-reverse; }
+.orbit-10 { width: 30px; height: 30px; top: 35%; left: 70%; animation-duration: 24s; animation-direction: alternate; }
+.orbit-11 { width: 30px; height: 30px; top: 55%; left: 15%; animation-duration: 33s; animation-direction: alternate-reverse; }
+
+/* Floating animation */
+@keyframes orbitFloat {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, -15px) rotate(45deg);
+  }
+  50% {
+    transform: translate(-15px, 20px) rotate(90deg);
+  }
+  75% {
+    transform: translate(10px, -10px) rotate(135deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(180deg);
+  }
 }
 
 
-@keyframes borderGlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Optional: subtle hover glow on navbar links */
-.nav-links a span:hover {
-  color: #ffa500;
-  text-shadow: 0 0 8px #ffd700, 0 0 15px #ffb700;
-}
-
-/* Logo / Animated Name */
+/* Logo / Name */
 .nav-logo {
-  font-family: 'Pacifico', cursive; /* Cursive font */
+  font-family: 'Pacifico', cursive;
   font-size: 2rem;
-  font-weight: bold;
-  color: #ffd700;
   display: flex;
-}
-
-.nav-logo span {
-  display: inline-block;
+  gap: 2px;
   cursor: default;
-  transition: transform 0.3s, color 0.3s;
+  z-index: 1;
 }
 
-.nav-logo span:hover {
-  color: #ffa500;
+/* Each logo letter different color & hover animation */
+.logo-letter {
+  display: inline-block;
+  transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Initial colors per letter */
+.letter-0 { color: #7c7cff; }
+.letter-1 { color: #8a8aff; }
+.letter-2 { color: #9696ff; }
+.letter-3 { color: #a2a2ff; }
+.letter-4 { color: #adadff; }
+.letter-5 { color: #b9b9ff; }
+.letter-6 { color: #c5c5ff; }
+.letter-7 { color: #d1d1ff; }
+.letter-8 { color: #dcdcff; }
+.letter-9 { color: #e8e8ff; }
+.letter-10 { color: #f4f4ff; }
+.letter-11 { color: #ffffff; }
+
+/* Hover colors */
+.letter-0:hover { color: #ffb3c1; }
+.letter-1:hover { color: #fbbf91; }
+.letter-2:hover { color: #ffd77b; }
+.letter-3:hover { color: #b3ffb8; }
+.letter-4:hover { color: #80ffea; }
+.letter-5:hover { color: #80d4ff; }
+.letter-6:hover { color: #b58fff; }
+.letter-7:hover { color: #ff9ee3; }
+.letter-8:hover { color: #ffb18f; }
+.letter-9:hover { color: #fff48f; }
+.letter-10:hover { color: #90ffd4; }
+.letter-11:hover { color: #d9b3ff; }
+
+/* Hover effect for logo letters */
+.logo-letter:hover {
   transform: translateY(-5px) scale(1.2);
-  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffb700;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.5),
+    0 0 16px rgba(124,124,255,0.4);
 }
 
-/* Nav Links */
+/* Nav Links - modern cursive/lightweight style */
 .nav-links {
   display: flex;
   align-items: center;
+  gap: 28px;
+  z-index: 1;
 }
-.nav-links a {
-  margin-left: 25px;
-  font-weight: bold;
+
+.nav-links a span {
+  font-family: 'Dancing Script', cursive; /* Modern cursive links */
+  font-weight: 300; /* light */
+  font-size: 1.15rem;
   position: relative;
+  display: inline-flex;
+  gap: 1px;
 }
+
+/* Nav link letters hover colors */
+.link-letter {
+  display: inline-block;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.link-letter:hover {
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Gradient underline animation */
 .nav-links a span::after {
-  content: "";
+  content: '';
   position: absolute;
+  left: 0;
+  bottom: -6px;
   width: 0%;
   height: 2px;
-  left: 0;
-  bottom: -5px;
-  background: #ffd700;
-  transition: width 0.3s;
+  background: linear-gradient(90deg, #7c7cff, #80d4ff, #7c7cff);
+  background-size: 200% 100%;
+  transition: width 0.4s ease;
 }
+
 .nav-links a span:hover::after,
 .nav-links a span.active-link::after {
   width: 100%;
-}
-.nav-links a span:hover {
-  color: #ffa500;
+  animation: gradientSlide 2s linear infinite;
 }
 
-/* Social Icons */
-.nav-social a {
-  margin-left: 15px;
-  color: #ffd700;
-  font-size: 1.2rem;
-  transition: color 0.3s, transform 0.3s;
-}
-.nav-social a:hover {
-  color: #ffa500;
-  transform: scale(1.2);
+@keyframes gradientSlide {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
 
 /* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
+  gap: 6px;
   cursor: pointer;
-  gap: 5px;
+  z-index: 1;
 }
+
 .hamburger span {
-  width: 25px;
+  width: 26px;
   height: 3px;
-  background-color: #ffd700;
+  background: #7c7cff;
+  border-radius: 3px;
   transition: all 0.3s ease;
 }
+
 .hamburger.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -200,31 +261,30 @@ button:hover {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile Styles */
+/* Mobile */
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
     top: 0;
     right: -100%;
     height: 100vh;
-    width: 250px;
-    background-color: #1e1e1e;
+    width: 260px;
+
+    background: rgba(10, 14, 25, 0.95);
+    backdrop-filter: blur(14px);
+
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    transition: right 0.3s ease;
+    gap: 32px;
+
+    transition: right 0.35s ease;
+    z-index: 1;
   }
+
   .nav-links.open {
     right: 0;
   }
-  .nav-links a {
-    margin: 20px 0;
-    font-size: 1.2rem;
-  }
-  .nav-social {
-    margin-top: 30px;
-    flex-direction: row;
-  }
+
   .hamburger {
     display: flex;
   }

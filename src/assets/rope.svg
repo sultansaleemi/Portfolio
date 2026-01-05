@@ -1,0 +1,11 @@
+<svg width="6" height="200" viewBox="0 0 6 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ropeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c89b5c"/>
+      <stop offset="50%" stop-color="#9b6b3e"/>
+      <stop offset="100%" stop-color="#6b4525"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="1" y="0" width="4" height="200" rx="2" fill="url(#ropeGrad)" />
+</svg>
