@@ -20,7 +20,7 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
   ];
 
-  const name = "Sultan Saleemi";
+  const name = "Sultan Mehmood Saleemi";
   const letters = name.split("");
 
   const linkHoverColors = [

@@ -36,7 +36,7 @@
 }
 
 /* =========================
-   HANGER (ROPE + CARD)
+   HANGER
 ========================= */
 
 .hanger {
@@ -45,23 +45,17 @@
   flex-direction: column;
   align-items: center;
   transform-origin: top center;
-  will-change: transform;
+  will-change: transform; /* kept only here */
 }
-.hanger,
+
 .project-card,
 .rope {
-  will-change: transform;
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
 
-.project-card {
-  cursor: pointer;
-}
-
-
 /* =========================
-   ROPE SVG (FROM YOUR Rope.jsx)
+   ROPE
 ========================= */
 
 .rope-svg {
@@ -69,7 +63,7 @@
 }
 
 /* =========================
-   CARD - FULLY UPDATED (IMAGE ONLY + HOVER OVERLAY)
+   PROJECT CARD
 ========================= */
 
 .project-card {
@@ -81,7 +75,6 @@
   border-radius: 20px;
   position: relative;
   transform-origin: top center;
-  will-change: transform;
   cursor: grab;
   overflow: hidden;
 }
@@ -96,10 +89,7 @@
   height: 100%;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 
-    0 55px 95px rgba(0,0,0,0.7),
-    inset 0 0 20px rgba(255,255,255,0.03);
-  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5); /* reduced */
   background: linear-gradient(180deg, rgba(30,35,65,0.96), rgba(15,18,35,0.96));
 }
 
@@ -111,12 +101,12 @@
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Hover Overlay - Title + Button */
+/* Overlay */
 .card-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgb(80 80 255 / 37%), rgb(80 212 255 / 17%));
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px); /* reduced */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,7 +115,7 @@
   transition: opacity 0.5s ease;
   padding: 20px;
   text-align: center;
-  pointer-events: none; /* Allows click to pass through to card for modal */
+  pointer-events: none;
 }
 
 .card-overlay h3 {
@@ -144,7 +134,7 @@
   color: white;
   font-weight: 700;
   font-size: 1.2rem;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px);
   transition: all 0.4s ease;
 }
 
@@ -164,7 +154,7 @@
   opacity: 1;
 }
 
-/* Hide any old direct content */
+/* Hide old content */
 .project-card > h3,
 .project-card > p,
 .project-card > button,
@@ -173,19 +163,18 @@
 }
 
 /* =========================
-   MODAL (UNCHANGED FOR NOW)
+   MODAL
 ========================= */
 
 .project-modal-backdrop {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px); /* reduced */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: background 0.3s ease;
 }
 
 .project-modal {
@@ -196,9 +185,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow:
-    0 60px 140px rgba(0,0,0,0.85),
-    inset 0 0 0 1px rgba(255,255,255,0.04);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.7); /* reduced */
 }
 
 .modal-header {
@@ -224,16 +211,10 @@
   font-size: 22px;
   color: #fff;
   cursor: pointer;
-  opacity: 0.8;
-}
-
-.close-btn:hover {
-  opacity: 1;
 }
 
 .modal-showcase {
   flex: 1;
-  position: relative;
   overflow-y: auto;
   cursor: grab;
   scrollbar-width: none;
@@ -250,13 +231,11 @@
 .modal-showcase img {
   width: 100%;
   display: block;
-  transform-origin: top center;
   transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
 }
 
 .modal-showcase.zoomed img {
   transform: scale(1.8);
-  cursor: zoom-out;
 }
 
 .modal-content {
@@ -265,11 +244,11 @@
   line-height: 1.7;
 }
 
+/* FIXED (merged duplicate) */
 .modal-actions {
   display: flex;
-  gap: 14px;
-  padding: 18px 26px;
-  background: linear-gradient(to top, #0e0e0e, transparent);
+  gap: 20px;
+  padding: 24px 32px;
 }
 
 .modal-actions a {
@@ -288,81 +267,7 @@
   color: #000;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 1024px) {
-  .hanging-row {
-    gap: 70px;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 768px) {
-  .hanging-row {
-    flex-direction: column;
-    gap: 100px;
-  }
-
-  .project-card {
-    width: 300px;
-    height: 400px;
-  }
-}
-
-/* Modal Background Particles */
-.modal-bg-particles {
-  position: absolute;
-  inset: 0;
-  border-radius: 22px;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(124, 124, 255, 0.6);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(124, 124, 255, 0.8);
-}
-
-/* Zoom Hint */
-.zoom-hint {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.6);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
-
-.modal-showcase:hover .zoom-hint {
-  opacity: 1;
-}
-
-/* Tech Stack */
-.tech-stack {
-  margin-top: 16px;
-  color: rgba(255,255,255,0.8);
-  font-size: 1rem;
-}
-
-/* Enhanced Buttons */
-.modal-actions {
-  gap: 20px;
-  padding: 24px 32px;
-}
-
+/* Buttons */
 .btn-primary,
 .btn-secondary {
   flex: 1;
@@ -387,27 +292,48 @@
   background: rgba(255,255,255,0.1);
   color: white;
   border: 1px solid rgba(255,255,255,0.3);
-  backdrop-filter: blur(10px);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 30px rgba(124,124,255,0.6);
+  box-shadow: 0 0 20px rgba(124,124,255,0.6);
 }
 
 .btn-secondary:hover {
   background: rgba(255,255,255,0.2);
 }
 
-/* Subtle Wind Air Particles Background */
-.hanging-projects::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: transparent;
-  z-index: 1;
-  overflow: hidden;
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+  .hanging-row {
+    gap: 70px;
+    flex-wrap: wrap;
+  }
 }
+
+@media (max-width: 768px) {
+  .hanging-row {
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .project-card {
+    width: 300px;
+    height: 400px;
+  }
+
+  /* Disable heavy particles */
+  .particle,
+  .particle-wind {
+    display: none;
+  }
+}
+
+/* =========================
+   PARTICLES (LIGHT)
+========================= */
 
 .particle-wind {
   position: absolute;
@@ -415,23 +341,18 @@
   height: 3px;
   background: rgba(180, 200, 255, 0.4);
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(180, 200, 255, 0.6);
   animation: floatWind linear infinite;
 }
 
 @keyframes floatWind {
   0% {
-    transform: translateX(-100px) translateY(100vh) rotate(0deg);
+    transform: translateX(-100px) translateY(100vh);
     opacity: 0;
   }
-  10% {
-    opacity: 0.6;
-  }
-  90% {
-    opacity: 0.4;
-  }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.4; }
   100% {
-    transform: translateX(100vw) translateY(-100px) rotate(360deg);
+    transform: translateX(100vw) translateY(-100px);
     opacity: 0;
   }
 }

@@ -4,7 +4,7 @@ import "./Hero.css";
 import avatarVideo from "../assets/new1.mp4";
 
 const Hero = () => {
-  const name = "Sultan Saleemi";
+  const name = "Sultan Mehmood Saleemi";
   const letters = name.split("");
 
   const videoRef = useRef(null);
