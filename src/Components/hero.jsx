@@ -46,7 +46,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
         >
-          WordPress Developer · React Enthusiast · UI Focused
+          WordPress Developer · UI Focused
         </motion.h2>
 
         <motion.p
@@ -55,8 +55,11 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          I build clean, modern, and user-focused web experiences. Specialized
-          in WordPress and growing with React.
+          Hi, I’m Sultan Saleemi. I build **fast, modern, and conversion-focused websites** for businesses, startups, and personal brands.  
+With over **5 years of experience** in WordPress, Elementor Pro, Divi, and custom coding, I’ve delivered more than **50+ successful projects**.  
+
+I focus on creating **responsive, SEO-friendly, and user-centric websites** that help businesses grow online.  
+When I’m not coding, I love turning Figma designs into pixel-perfect websites and exploring new web technologies.
         </motion.p>
 
         <motion.div
