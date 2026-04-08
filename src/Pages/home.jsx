@@ -1,6 +1,7 @@
 import Hero from "../Components/hero";
 import WhatIDoBubbles from "../Components/WhatIDoBubbles";
 import ProjectsSection from "../Components/ProjectsSection";
+import Contact from "../Components/Contact.jsx"
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <WhatIDoBubbles />
       <ProjectsSection />
+      <Contact />
       {/* Next sections come here */}
     </>
   );

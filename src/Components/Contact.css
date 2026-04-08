@@ -1,0 +1,220 @@
+.contact-modern {
+  padding: 120px 20px;
+  background: rgba(10, 14, 25, 0.95);
+  color: #fff;
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.contact-title span {
+  color: #4f46e5;
+}
+
+.contact-text {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.contact-actions {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-btn {
+  padding: 16px 32px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+/* Primary */
+.contact-btn.primary {
+  background: #4f46e5;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+}
+
+.contact-btn.primary:hover {
+  background: #6366f1;
+}
+
+/* Secondary */
+.contact-btn.secondary {
+  background: #1e293b;
+  color: #fff;
+  border: 1px solid #334155;
+}
+
+.contact-btn.secondary:hover {
+  border-color: #4f46e5;
+}
+
+/* Ghost */
+.contact-btn.ghost {
+  background: transparent;
+  color: #cbd5e1;
+  border: 1px dashed #334155;
+}
+
+.contact-btn.ghost:hover {
+  color: #fff;
+  border-color: #6366f1;
+}
+
+.contact-foot {
+  margin-top: 60px;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .contact-actions {
+    flex-direction: column;
+  }
+}
+.contact-modern {
+  position: relative;
+  padding: 120px 20px;
+
+  color: #fff;
+  overflow: hidden;
+}
+
+/* ================= CODE BACKGROUND ================= */
+
+.code-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.code-stream {
+  position: absolute;
+  font-family: "Fira Code", monospace;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #dadada;
+  opacity: 0.12;
+  filter: blur(0.4px);
+  white-space: pre;
+  animation: floatCode 22s linear infinite;
+}
+
+/* Different streams = depth */
+.stream-1 {
+  top: 10%;
+  left: 5%;
+  animation-duration: 26s;
+}
+
+.stream-2 {
+  top: 40%;
+  left: 55%;
+  animation-duration: 30s;
+}
+
+.stream-3 {
+  top: 70%;
+  left: 25%;
+  animation-duration: 34s;
+}
+
+@keyframes floatCode {
+  from {
+    transform: translateY(120%) translateX(0);
+  }
+  to {
+    transform: translateY(-160%) translateX(-40px);
+  }
+}
+
+/* ================= CONTENT ================= */
+
+.contact-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+}
+
+.contact-title span {
+  color: #4f46e5;
+}
+
+.contact-text {
+  margin-top: 20px;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.contact-actions {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  padding: 16px 32px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Buttons */
+.contact-btn.primary {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.contact-btn.secondary {
+  border: 1px solid #334155;
+  color: #cbd5e1;
+}
+
+.contact-btn.ghost {
+  border: 1px dashed #334155;
+  color: #94a3b8;
+}
+
+.contact-foot {
+  margin-top: 60px;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .contact-actions {
+    flex-direction: column;
+  }
+}
