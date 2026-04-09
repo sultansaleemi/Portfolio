@@ -1,6 +1,9 @@
 import { motion, useAnimation } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import "./WhatIDoBubbles.css";
+// import wordpress from "../assets/icons/wordpress-icon.svg";
+import { icons } from "./icons";
+
 
 // Updated Professional Skills
 const services = [
@@ -8,51 +11,51 @@ const services = [
   { 
     title: "WordPress Development", 
     desc: "Custom themes, plugins, and responsive websites that convert visitors into clients.", 
-    icon: "src/icons/wordpress-icon.svg"
+    icon: icons.wordpress
   },
   { 
     title: "Elementor & Divi Pro", 
     desc: "Pixel-perfect designs with advanced page builder interactions and layouts.", 
-    icon: "src/icons/elementor-icon.svg"
+    icon:  icons.elementor
   },
   { 
     title: "E-Commerce Setup", 
     desc: "WooCommerce and Shopify stores optimized for sales, performance, and UX.", 
-    icon: "src/icons/shopify.svg"
+    icon:  icons.shopify
   },
 
   // UI / UX & Design
   { 
     title: "UI / UX Design", 
     desc: "Clean, user-centered interfaces with Figma-to-WordPress conversion.", 
-    icon: "src/icons/design.svg"
+    icon: icons.design
   },
   { 
     title: "Responsive Web Design", 
     desc: "Mobile-first websites that look perfect on all devices and screen sizes.", 
-    icon: "src/icons/responsive.svg"
+    icon:  icons.responsive
   },
   { 
     title: "Interaction Design", 
     desc: "Subtle animations and micro-interactions using GSAP & Framer Motion.", 
-    icon: "src/icons/animation.svg"
+    icon:  icons.animation
   },
 
   // Performance & Optimization
   { 
     title: "Performance Optimization", 
     desc: "Fast-loading websites with clean code, caching, and SEO fundamentals.", 
-    icon: "src/icons/perfomance.svg"
+    icon:  icons.perfor
   },
   { 
     title: "SEO & Analytics", 
     desc: "SEO-ready websites with Google Analytics and conversion tracking setup.", 
-    icon: "src/icons/seo.svg"
+    icon:  icons.seo
   },
   { 
     title: "Maintenance & Security", 
     desc: "Ongoing updates, backups, and protection for worry-free website operation.", 
-    icon: "src/icons/security.svg"
+    icon:  icons.security
   },
 ];
 
