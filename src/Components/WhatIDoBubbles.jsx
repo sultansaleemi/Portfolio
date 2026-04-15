@@ -1,91 +1,73 @@
-import { motion, useAnimation } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import "./WhatIDoBubbles.css";
-// import wordpress from "../assets/icons/wordpress-icon.svg";
 import { icons } from "./icons";
 
-
-// Updated Professional Skills
 const services = [
-  // Web Development
   { 
     title: "WordPress Development", 
-    desc: "Custom themes, plugins, and responsive websites that convert visitors into clients.", 
+    desc: "Building scalable, high-performance WordPress websites focused on real business results.", 
     icon: icons.wordpress
   },
   { 
-    title: "Elementor & Divi Pro", 
-    desc: "Pixel-perfect designs with advanced page builder interactions and layouts.", 
-    icon:  icons.elementor
+    title: "Elementor & Divi Expert", 
+    desc: "Creating pixel-perfect, responsive layouts with advanced UI/UX and modern design standards.", 
+    icon: icons.elementor
   },
   { 
-    title: "E-Commerce Setup", 
-    desc: "WooCommerce and Shopify stores optimized for sales, performance, and UX.", 
-    icon:  icons.shopify
+    title: "E-Commerce Development", 
+    desc: "Developing WooCommerce stores optimized for conversions and smooth user experience.", 
+    icon: icons.shopify
   },
-
-  // UI / UX & Design
   { 
-    title: "UI / UX Design", 
-    desc: "Clean, user-centered interfaces with Figma-to-WordPress conversion.", 
+    title: "Frontend Development", 
+    desc: "Strong skills in HTML, CSS, and JavaScript for building responsive interfaces.", 
+    icon: icons.responsive
+  },
+  { 
+    title: "Figma to WordPress", 
+    desc: "Converting designs into pixel-perfect, production-ready websites.", 
     icon: icons.design
   },
   { 
-    title: "Responsive Web Design", 
-    desc: "Mobile-first websites that look perfect on all devices and screen sizes.", 
-    icon:  icons.responsive
+    title: "Animations & Interactions", 
+    desc: "Enhancing UI with smooth animations using modern tools like Framer Motion.", 
+    icon: icons.animation
   },
-  { 
-    title: "Interaction Design", 
-    desc: "Subtle animations and micro-interactions using GSAP & Framer Motion.", 
-    icon:  icons.animation
-  },
-
-  // Performance & Optimization
   { 
     title: "Performance Optimization", 
-    desc: "Fast-loading websites with clean code, caching, and SEO fundamentals.", 
-    icon:  icons.perfor
+    desc: "Improving speed, Core Web Vitals, and overall performance.", 
+    icon: icons.perfor
   },
   { 
-    title: "SEO & Analytics", 
-    desc: "SEO-ready websites with Google Analytics and conversion tracking setup.", 
-    icon:  icons.seo
+    title: "SEO & Tracking", 
+    desc: "Implementing SEO best practices and analytics tracking.", 
+    icon: icons.seo
   },
-  { 
-    title: "Maintenance & Security", 
-    desc: "Ongoing updates, backups, and protection for worry-free website operation.", 
-    icon:  icons.security
-  },
+  
 ];
+
 
 const WhatIDoBubbles = () => {
   const [modalService, setModalService] = useState(null);
-  const controls = useAnimation();
-  const containerRef = useRef();
-
-  // Scroll-based parallax effect
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      const { top } = containerRef.current.getBoundingClientRect();
-      const scrollProgress = Math.min(Math.max(-top / window.innerHeight, 0), 1);
-      controls.start({ y: scrollProgress * 30 }); // gentler parallax for performance
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [controls]);
 
   return (
-    <section className="what-i-do-bubbles" ref={containerRef}>
-      <h2 className="section-title">My Professional Skills</h2>
+    <section className="what-i-do-bubbles">
 
+     
+
+      {/* CONTENT */}
+      <h2 className="section-title">Professional Expertise</h2>
+
+      <p className="section-subtitle">
+        Delivering high-quality web solutions focused on performance, design, and business growth.
+      </p>
+
+      {/* BUBBLES */}
       <div className="bubbles-container">
         {services.map((service, index) => {
           const randomX = Math.random() * 40 - 20;
           const randomY = Math.random() * 20 - 10;
-          const floatDuration = 6 + Math.random() * 3;
 
           return (
             <motion.div
@@ -96,17 +78,14 @@ const WhatIDoBubbles = () => {
               animate={{
                 x: [randomX, randomX + 6, randomX, randomX - 6, randomX],
                 y: [randomY, randomY - 8, randomY, randomY + 8, randomY],
-                rotate: [0, 1, 0, -1, 0],
               }}
               transition={{
-                duration: floatDuration,
+                duration: 6 + Math.random() * 2,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: index * 0.2,
               }}
               whileHover={{
-                scale: 1.15,
-                rotate: 0,
+                scale: 1.1,
                 boxShadow: "0 20px 40px rgba(124,124,255,0.4)",
               }}
             >
@@ -121,13 +100,15 @@ const WhatIDoBubbles = () => {
         })}
       </div>
 
-      {/* Modal */}
+      {/* MODAL */}
       {modalService && (
         <div className="bubble-modal" onClick={() => setModalService(null)}>
           <div className="bubble-modal-content" onClick={(e) => e.stopPropagation()}>
             <h3>{modalService.title}</h3>
             <p>{modalService.desc}</p>
-            <button className="btn-secondary" onClick={() => setModalService(null)}>Close</button>
+            <button className="btn-secondary" onClick={() => setModalService(null)}>
+              Close
+            </button>
           </div>
         </div>
       )}

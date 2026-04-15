@@ -30,7 +30,7 @@ const Hero = () => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
-                delay: index * 0.06,
+                delay: index * 0.05,
                 type: "spring",
                 stiffness: 120,
               }}
@@ -44,22 +44,29 @@ const Hero = () => {
           className="hero-role"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.6 }}
         >
-          WordPress Developer · UI Focused
+          WordPress Developer | Elementor & Custom Website Expert
         </motion.h2>
 
         <motion.p
           className="hero-text"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 0.9 }}
         >
-          Hi, I’m Sultan Saleemi. I build **fast, modern, and conversion-focused websites** for businesses, startups, and personal brands.  
-With over **5 years of experience** in WordPress, Elementor Pro, Divi, and custom coding, I’ve delivered more than **50+ successful projects**.  
-
-I focus on creating **responsive, SEO-friendly, and user-centric websites** that help businesses grow online.  
-When I’m not coding, I love turning Figma designs into pixel-perfect websites and exploring new web technologies.
+          I’m Sultan Saleemi, a WordPress Developer with over 3 years of
+          professional experience working at Cyber Peak Solutions.
+          I specialize in building fast, modern, and conversion-focused websites
+          for businesses, startups, and personal brands.
+          <br /><br />
+          I have strong expertise in Elementor Pro, Divi, and custom WordPress
+          development, delivering responsive, SEO-friendly, and user-centric
+          websites that help businesses grow online.
+          <br /><br />
+          I enjoy turning Figma and PSD designs into pixel-perfect websites and
+          continuously exploring new technologies to improve performance and user
+          experience.
         </motion.p>
 
         <motion.div
@@ -71,16 +78,16 @@ When I’m not coding, I love turning Figma designs into pixel-perfect websites 
           <motion.a
             href="#projects"
             className="btn primary"
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
           >
-            View Work
+            View My Work
           </motion.a>
 
           <motion.a
             href="#contact"
             className="btn secondary"
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
           >
             Contact Me
@@ -96,11 +103,11 @@ When I’m not coding, I love turning Figma designs into pixel-perfect websites 
           src={avatarVideo}
           autoPlay
           muted
-          loop={false}
+          loop
           playsInline
-          initial={{ x: 200, opacity: 0, scale: 0.95 }}
+          initial={{ x: 150, opacity: 0, scale: 0.95 }}
           animate={{ x: 0, opacity: 1, scale: 1 }}
-          transition={{ type: "spring", stiffness: 90, damping: 12 }}
+          transition={{ type: "spring", stiffness: 80, damping: 12 }}
         />
 
         {/* Click-to-unmute button */}
@@ -108,21 +115,8 @@ When I’m not coding, I love turning Figma designs into pixel-perfect websites 
           <button
             onClick={handleUnmute}
             className="unmute-btn"
-            style={{
-              position: "absolute",
-              bottom: "10px",
-              right: "10px",
-              background: "#4f46e5",
-              color: "#fff",
-              padding: "8px 14px",
-              borderRadius: "6px",
-              border: "none",
-              cursor: "pointer",
-              fontWeight: "bold",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
-            }}
           >
-            🔊 Play Sound
+            🔊 Sound
           </button>
         )}
       </div>
