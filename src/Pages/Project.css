@@ -1,0 +1,132 @@
+.projects-page {
+  padding: 100px 60px;
+  background: radial-gradient(circle at top, #070b16, #05070f);
+  color: white;
+}
+
+/* HERO */
+.projects-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.projects-hero h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #fff, #80d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects-hero p {
+  max-width: 700px;
+  margin: 10px auto;
+  opacity: 0.7;
+}
+
+/* FILTERS */
+.filters {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filters button:hover,
+.filters .active {
+  background: #7c7cff;
+  border-color: #7c7cff;
+}
+
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.project-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(124,124,255,0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(124,124,255,0.4);
+}
+
+/* IMAGE */
+.img-box {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 14px;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+/* CONTENT */
+.card-content {
+  padding: 15px;
+}
+
+.tag {
+  font-size: 11px;
+  color: #80d4ff;
+  letter-spacing: 2px;
+}
+
+.card-content h3 {
+  margin: 10px 0;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}

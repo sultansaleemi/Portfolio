@@ -1,0 +1,37 @@
+.dev-elements-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: #05070f;
+}
+
+/* floating items */
+.floating {
+  position: absolute;
+  top: 100%;
+  font-size: 18px;
+  font-family: monospace;
+     color: rgb(182 182 203 / 93%);
+
+  animation: floatUp 20s linear infinite;
+  white-space: nowrap;
+}
+
+/* animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}

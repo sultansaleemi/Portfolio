@@ -1,105 +1,126 @@
-import { useState, useEffect, lazy, Suspense } from "react";
-import { AnimatePresence } from "framer-motion";
-import HangingCard from "./Projects/HangingCard.jsx";
 import "./ProjectsSection.css";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import AnimatedTextLink from "./AnimatedTextLink";
 
-const ProjectModal = lazy(() => import("./Projects/ProjectModal.jsx"));
-
-import eventis from "../assets/eventis-project.png";
 import portfolio from "../assets/hbeecherhicks-portfolio.png";
 import ecommerce from "../assets/furnitureconcepts.png";
-import landing from "../assets/prattliving.png";
+import eventis from "../assets/eventis-project.png";
 
 const projects = [
   {
     title: "Personal Portfolio Website",
-    description: "Designed and developed a modern animated portfolio to showcase skills and attract clients.",
+    description:
+      "WordPress + Elementor based portfolio designed for client attraction and personal branding.",
     result: "Increased client inquiries and improved personal branding.",
     image: portfolio,
-    tech: ["React", "Framer Motion", "GSAP"],
+    tech: ["WordPress", "Elementor", "GSAP"],
     live: "https://hbeecherhicks.com",
-    github: "#",
+    slug: "portfolio-site",
   },
   {
     title: "WooCommerce Store",
-    description: "Built a high-performance WooCommerce store focused on UX and conversions.",
-    result: "Improved checkout flow and product engagement.",
+    description:
+      "High-performance eCommerce store built with WooCommerce and Elementor.",
+    result: "Improved checkout flow and conversion rate.",
     image: ecommerce,
     tech: ["WordPress", "WooCommerce", "Elementor"],
     live: "https://furnitureconcepts.com",
-    github: "#",
+    slug: "woocommerce-store",
   },
   {
-    title: "Event Booking Platform",
-    description: "Created a full event booking system with dashboard and payment flow.",
-    result: "Simplified booking process and improved usability.",
+    title: "Event Booking Website",
+    description:
+      "Booking system with modern UI and smooth user experience.",
+    result: "Simplified booking process for users.",
     image: eventis,
-    tech: ["React", "Node.js"],
+    tech: ["WordPress", "Custom UI", "Elementor"],
     live: "https://eventis.com",
-    github: "#",
-  },
-  {
-    title: "Landing Page Design",
-    description: "High-converting marketing landing page for lead generation.",
-    result: "Improved conversion rate and campaign performance.",
-    image: landing,
-    tech: ["HTML", "CSS", "JavaScript"],
-    live: "https://prattliving.com",
-    github: "#",
+    slug: "event-booking",
   },
 ];
 
-const HangingProjects = () => {
-  const [active, setActive] = useState(null);
-  const [particlesReady, setParticlesReady] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setParticlesReady(true), 1200);
-    return () => clearTimeout(timer);
-  }, []);
-
+const ProjectsSection = () => {
   return (
-    <section className="hanging-projects">
+    <section className="projects-section">
 
-      <h2 className="section-title">Projects</h2>
+      {/* HEADER */}
+      <div className="projects-header">
+        <h2>Featured Projects</h2>
 
-      {particlesReady &&
-        Array.from({ length: 6 }).map((_, i) => (
-          <div
-            key={i}
-            className="particle-wind"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDuration: `${20 + Math.random() * 10}s`,
-            }}
-          />
-        ))}
+        <p>
+          Real WordPress & Elementor projects focused on performance, UX, and business results.
+        </p>
 
-      <div className="hanging-row">
-        {projects.map((p, i) => (
-          <HangingCard
-            key={i}
-            project={p}
-            index={i}
-            onOpen={() => setActive(p)}
-          />
-        ))}
+        <Link to="/projects" className="view-all-link">
+          Explore All Projects →
+        </Link>
       </div>
 
-      <AnimatePresence>
-        {active && (
-          <Suspense fallback={null}>
-            <ProjectModal
-              project={active}
-              onClose={() => setActive(null)}
-            />
-          </Suspense>
-        )}
-      </AnimatePresence>
+      {/* TIMELINE */}
+      <div className="timeline">
 
+        {projects.map((p, i) => (
+          <motion.div
+            key={i}
+            className={`timeline-item ${i % 2 === 0 ? "right" : "left"}`}
+            initial={{ opacity: 0, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+
+            <div className="timeline-card">
+
+              {/* IMAGE */}
+              <div className="timeline-image">
+                <img src={p.image} alt={p.title} />
+                <div className="image-overlay" />
+              </div>
+
+              {/* CONTENT */}
+              <div className="timeline-content">
+
+                <span className="tag">WORDPRESS • ELEMENTOR</span>
+
+                <h3>{p.title}</h3>
+
+                <p className="desc">{p.description}</p>
+
+                <p className="result">✨ {p.result}</p>
+
+                <div className="tech">
+                  {p.tech.map((t, idx) => (
+                    <span key={idx}>{t}</span>
+                  ))}
+                </div>
+
+                {/* ACTION LINKS */}
+                <div className="project-buttons">
+
+                  <AnimatedTextLink
+                    text="Visit Live Site"
+                    href={p.live}
+                    target="_blank"
+                  />
+
+                  <AnimatedTextLink
+                    text="View Case Study"
+                    href={`#/projects/${p.slug}`}
+                  />
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </motion.div>
+        ))}
+
+      </div>
     </section>
   );
 };
 
-export default HangingProjects;
+export default ProjectsSection;

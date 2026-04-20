@@ -1,0 +1,200 @@
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.case {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at top, #070b16, #05070f);
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+/* =========================
+   LEFT PANEL (STORY)
+========================= */
+
+.case-left {
+  width: 38%;
+  padding: 60px;
+  color: white;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+}
+
+/* scrollbar hidden but scrollable */
+.case-left::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* TITLE */
+.title-area span,
+.tag {
+  color: #7c7cff;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.title-area h1,
+.case-left h1 {
+  font-size: 2.2rem;
+  margin-top: 12px;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #ffffff, #80d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* STORY CARDS */
+.story-card {
+  margin-top: 22px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(124,124,255,0.15);
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(124,124,255,0.4);
+}
+
+.story-card h3 {
+  color: #80d4ff;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.story-card p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* SUCCESS CARD */
+.story-card.success {
+  border-color: rgba(74,222,128,0.3);
+  box-shadow: 0 0 25px rgba(74,222,128,0.08);
+}
+
+/* TECH TAGS */
+.tech {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech span {
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(124,124,255,0.12);
+  border: 1px solid rgba(124,124,255,0.25);
+  color: white;
+}
+
+/* ACTION BUTTONS */
+.actions {
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.actions a {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: 0.3s ease;
+  background: rgba(255,255,255,0.05);
+}
+
+.actions a:hover {
+  transform: translateY(-2px);
+  border-color: #80d4ff;
+  box-shadow: 0 0 20px rgba(128,212,255,0.2);
+  color: #80d4ff;
+}
+
+/* =========================
+   RIGHT PANEL (IMMERSIVE VIEWER FIXED)
+========================= */
+
+.case-right {
+  width: 62%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, rgba(124,124,255,0.08), transparent 60%);
+}
+
+/* smooth feel */
+.image-lab {
+  transition: transform 0.2s ease;
+  will-change: transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* image */
+.image-lab img {
+  width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* UI */
+.zoom-ui {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .case {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .case-left {
+    width: 100%;
+    height: auto;
+    padding: 30px;
+  }
+
+  .case-right {
+    width: 100%;
+    height: 70vh;
+  }
+
+  .image-lab img {
+    width: 100%;
+  }
+}

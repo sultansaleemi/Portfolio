@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import "./Hero.css";
 import avatarVideo from "../assets/new1.mp4";
+import mypic from "../assets/removed bg.png";
 
 const Hero = () => {
   const name = "Sultan Mehmood Saleemi";

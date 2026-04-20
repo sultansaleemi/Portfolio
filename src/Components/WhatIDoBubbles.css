@@ -6,6 +6,7 @@
 .what-i-do-bubbles {
   position: relative;
   overflow: hidden;
+  /* background: radial-gradient(circle at top, #070a12, #0b1020); */
 }
 
 /* bubbles ABOVE background */
@@ -129,7 +130,7 @@
 .bubble-modal {
   position: fixed;
   inset: 0;
-  background: rgba(10, 14, 25, 0.8);
+  /* background: rgba(10, 14, 25, 0.8); */
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
