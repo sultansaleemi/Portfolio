@@ -1,107 +1,114 @@
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
+import { useEffect, useState } from "react";
 import "./Contact.css";
+import resume from "../assets/Sultan_mehmmod.pdf";
 
 const Contact = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  // 🔥 Cursor glow tracking
+  useEffect(() => {
+    const move = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+
   return (
     <section className="contact-modern" id="contact">
+
+      {/* 🔥 CURSOR GLOW */}
+      <div
+        className="cursor-glow"
+        style={{
+          left: position.x,
+          top: position.y,
+        }}
+      />
+
       {/* CODE BACKGROUND */}
       <div className="code-layer">
         <pre className="code-stream stream-1">
-{`const build = (idea) => {
-  return {
-    design: "Clean UI",
-    code: "Scalable",
-    result: "Impact"
-  }
-}
+{`const developer = "Sultan";
 
-export default build`}
+function build(idea) {
+  return "exceptional experience";
+}`}
         </pre>
 
         <pre className="code-stream stream-2">
-{`function connect(client) {
-  if (!client.idea) return;
-  console.log("Let’s build something meaningful");
-}
-
-connect();`}
-        </pre>
-
-        <pre className="code-stream stream-3">
-{`<Portfolio>
-  <Hero />
-  <Projects />
-  <Contact />
-</Portfolio>`}
+{`if (project) {
+  console.log("Let's build together 🚀");
+}`}
         </pre>
       </div>
 
-      {/* CONTENT (UNCHANGED) */}
       <div className="contact-inner">
-        <motion.h2
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="contact-title"
-        >
-          Let’s build something
-          <span> meaningful</span>
-        </motion.h2>
 
-        <motion.p
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="contact-text"
-        >
-          Have an idea, a project, or just want to say hi?  
-          I’m always open to discussing new opportunities.
-        </motion.p>
+        {/* 🔥 TYPING HEADING */}
+        <h2 className="contact-title">
+          <span className="code-line">const name = "</span>
+          <span className="typing">
+            <Typewriter
+              words={["Sultan", "Wordpress Developer", "UI Specialist"]}
+              loop={true}
+              cursor
+              cursorStyle="_"
+              typeSpeed={80}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
+          </span>
+          <span className="code-line">";</span>
+        </h2>
 
-        <motion.div
-          className="contact-actions"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          <motion.a
-            href="mailto:youremail@example.com"
+        <p className="contact-text">
+          I design and build high-performance websites that convert and stand out.
+        </p>
+
+        {/* 🔥 TERMINAL BOX */}
+        <div className="terminal">
+          <p><span>$</span> npm run build-project</p>
+          <p className="success">✔ Project compiled successfully</p>
+          <p><span>$</span> deploy --live</p>
+          <p className="success">✔ Your idea is now live 🚀</p>
+        </div>
+
+        {/* BUTTONS */}
+        <div className="contact-actions">
+
+          <a
+            href="mailto:sultan.saleemi321@gmail.com"
             className="contact-btn primary"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
           >
-            Start a Conversation →
-          </motion.a>
+            Hire Me →
+          </a>
 
-          <motion.a
-            href="/resume.pdf"
+          <a
+            href={resume}
             target="_blank"
+            rel="noopener noreferrer"
             className="contact-btn secondary"
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.95 }}
           >
             View Resume
-          </motion.a>
+          </a>
 
-          <motion.a
-            href="https://linkedin.com/in/yourusername"
+          <a
+            href="https://wa.me/971541825667"
             target="_blank"
             className="contact-btn ghost"
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.95 }}
           >
-            Connect on LinkedIn
-          </motion.a>
-        </motion.div>
+            WhatsApp
+          </a>
 
-        <motion.p
-          className="contact-foot"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
+        </div>
+
+        <p className="contact-foot">
           Available for freelance & full-time opportunities.
-        </motion.p>
+        </p>
+
       </div>
     </section>
   );

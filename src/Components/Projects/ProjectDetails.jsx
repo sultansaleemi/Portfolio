@@ -15,8 +15,9 @@ const projects = {
     problem: "Client needed strong personal branding.",
     solution: "Built WordPress + Elementor animated portfolio.",
     result: "Increased client inquiries significantly.",
-    tech: ["WordPress", "Elementor", "GSAP"],
+    tech: ["WordPress", "Elementor", "GSAP"]
   },
+
   "woocommerce-store": {
     title: "WooCommerce Store",
     image: ecommerce,
@@ -24,8 +25,9 @@ const projects = {
     problem: "Low conversion and bad UX.",
     solution: "Rebuilt store with optimized UX flow.",
     result: "Improved sales performance.",
-    tech: ["WordPress", "WooCommerce", "Elementor"],
+    tech: ["WordPress", "WooCommerce", "Elementor"]
   },
+
   "event-booking": {
     title: "Event Booking Platform",
     image: eventis,
@@ -33,8 +35,26 @@ const projects = {
     problem: "Complicated booking system.",
     solution: "Simplified UI + dashboard system.",
     result: "Faster booking process.",
-    tech: ["WordPress", "Custom UI"],
+    tech: ["WordPress", "Custom UI"]
   },
+
+  "event-booking": {
+    title: "Eventis DMC — Corporate Destination Management Website",
+    image: eventis,
+    live: "https://eventisdmc.com",
+
+    problem:
+      "Corporate clients needed a premium, structured platform to understand complex destination management services clearly while building trust for high-value corporate event planning.",
+
+    solution:
+      "Designed and developed a full WordPress + Elementor website from scratch with structured service architecture, destination-based content flow, strong visual hierarchy, and conversion-focused UX.",
+
+    result:
+      "Delivered a premium corporate digital presence that improved trust, enhanced service clarity, strengthened mobile experience, and increased inquiry quality for enterprise clients.",
+
+    tech: ["WordPress", "Elementor Pro", "HTML", "CSS", "JavaScript"]
+  },
+
   "landing-page": {
     title: "Landing Page Design",
     image: landing,
@@ -42,8 +62,8 @@ const projects = {
     problem: "Low converting landing page.",
     solution: "High-conversion UI design.",
     result: "More leads generated.",
-    tech: ["HTML", "CSS", "WordPress"],
-  },
+    tech: ["HTML", "CSS", "WordPress"]
+  }
 };
 
 const ProjectDetails = () => {
@@ -52,42 +72,46 @@ const ProjectDetails = () => {
 
   const containerRef = useRef(null);
 
-  const [zoomed, setZoomed] = useState(false);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
   const [dragging, setDragging] = useState(false);
   const [start, setStart] = useState({ x: 0, y: 0 });
 
   if (!project) return <h2>Not Found</h2>;
 
-  // ✅ TOGGLE ZOOM
-  const toggleZoom = () => {
-    setZoomed((prev) => !prev);
-    setPos({ x: 0, y: 0 }); // reset position
-  };
+  const handleWheel = (e) => {
+    e.preventDefault();
 
-  // ✅ START DRAG
-  const handleMouseDown = (e) => {
-    if (!zoomed) return;
-
-    setDragging(true);
-    setStart({
-      x: e.clientX - pos.x,
-      y: e.clientY - pos.y,
+    setZoom((prev) => {
+      let next = prev + (e.deltaY > 0 ? -0.2 : 0.2);
+      return Math.min(Math.max(next, 1), 4);
     });
   };
 
-  // ✅ MOVE DRAG
-  const handleMouseMove = (e) => {
-    if (!dragging || !zoomed) return;
+  const handleDoubleClick = () => {
+    setZoom((z) => (z === 1 ? 2.5 : 1));
+    setPan({ x: 0, y: 0 });
+  };
 
-    setPos({
+  const handleMouseDown = (e) => {
+    if (zoom === 1) return;
+
+    setDragging(true);
+    setStart({
+      x: e.clientX - pan.x,
+      y: e.clientY - pan.y,
+    });
+  };
+
+  const handleMouseMove = (e) => {
+    if (!dragging || zoom === 1) return;
+
+    setPan({
       x: e.clientX - start.x,
       y: e.clientY - start.y,
     });
   };
 
-  // ✅ END DRAG
   const handleMouseUp = () => {
     setDragging(false);
   };
@@ -95,9 +119,8 @@ const ProjectDetails = () => {
   return (
     <div className="case">
 
-      {/* LEFT SIDE (UNCHANGED) */}
+      {/* LEFT SIDE */}
       <div className="case-left">
-
         <div className="title-area">
           <span>CASE STUDY</span>
           <h1>{project.title}</h1>
@@ -125,41 +148,39 @@ const ProjectDetails = () => {
         </div>
 
         <div className="actions">
-          <a href={project.live} target="_blank" rel="noopener noreferrer">
-            Visit Live
-          </a>
+          <a href={project.live} target="_blank" rel="noreferrer">Visit Live</a>
           <Link to="/projects">Back</Link>
         </div>
-
       </div>
 
       {/* RIGHT SIDE */}
       <div
-        className={`case-right ${zoomed ? "zoomed" : ""}`}
+        className="case-right"
         ref={containerRef}
+        onWheel={handleWheel}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
+        onDoubleClick={handleDoubleClick}
       >
-
         <div
           className="image-lab"
-          onClick={toggleZoom}
           onMouseDown={handleMouseDown}
           style={{
-            transform: zoomed
-              ? `translate(${pos.x}px, ${pos.y}px) scale(4.5)`
-              : "translate(0px, 0px) scale(1)",
-            cursor: zoomed ? "grab" : "zoom-in",
+            transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+            transformOrigin: "center",
+            cursor: zoom > 1 ? "grab" : "zoom-in",
+            transition: dragging ? "none" : "transform 0.2s ease",
           }}
         >
           <img src={project.image} alt={project.title} draggable={false} />
         </div>
 
         <div className="zoom-ui">
-          {zoomed ? "Zoom ON — Drag to explore" : "Click to zoom"}
+          {zoom === 1
+            ? "Scroll to zoom • Double click to focus"
+            : "Drag to explore • Double click reset"}
         </div>
-
       </div>
 
     </div>

@@ -44,6 +44,15 @@
   text-align: center;
   color: #7c7cff;
   letter-spacing: 1px;
+  background: linear-gradient(90deg, #ffffff, #80d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.section-title span{
+
+  background: linear-gradient(90deg, #7c7cff, #80d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Subtitle */

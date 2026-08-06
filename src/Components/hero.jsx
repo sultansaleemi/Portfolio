@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import "./Hero.css";
 import avatarVideo from "../assets/new1.mp4";
-import mypic from "../assets/removed bg.png";
 
 const Hero = () => {
   const name = "Sultan Mehmood Saleemi";
@@ -21,8 +20,11 @@ const Hero = () => {
 
   return (
     <section className="hero hero-3d">
+      
       {/* LEFT SIDE */}
       <div className="hero-left">
+
+        {/* NAME (keep animation) */}
         <h1 className="hero-name">
           {letters.map((letter, index) => (
             <motion.span
@@ -41,35 +43,39 @@ const Hero = () => {
           ))}
         </h1>
 
+        {/* 🔥 MAIN VALUE HEADING */}
         <motion.h2
           className="hero-role"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.5 }}
         >
-          WordPress Developer | Elementor & Custom Website Expert
+          I Build High-Converting WordPress Websites
         </motion.h2>
 
+        {/* 🔥 SHORT POWER TEXT */}
         <motion.p
           className="hero-text"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.9 }}
+          transition={{ delay: 0.8 }}
         >
-          I’m Sultan Saleemi, a WordPress Developer with over 3 years of
-          professional experience working at Cyber Peak Solutions.
-          I specialize in building fast, modern, and conversion-focused websites
-          for businesses, startups, and personal brands.
-          <br /><br />
-          I have strong expertise in Elementor Pro, Divi, and custom WordPress
-          development, delivering responsive, SEO-friendly, and user-centric
-          websites that help businesses grow online.
-          <br /><br />
-          I enjoy turning Figma and PSD designs into pixel-perfect websites and
-          continuously exploring new technologies to improve performance and user
-          experience.
+          Helping businesses increase leads, improve user experience,
+          and grow their online presence using WordPress, Elementor, and
+          performance-focused design.
         </motion.p>
 
+        {/* 🔥 TRUST SIGNAL (VERY IMPORTANT) */}
+        <motion.p
+          className="hero-location"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          📍 Based in UAE | Available for immediate hiring
+        </motion.p>
+
+        {/* BUTTONS */}
         <motion.div
           className="hero-buttons"
           initial={{ opacity: 0 }}
@@ -82,7 +88,7 @@ const Hero = () => {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
           >
-            View My Work
+            View Projects
           </motion.a>
 
           <motion.a
@@ -91,12 +97,13 @@ const Hero = () => {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
           >
-            Contact Me
+            Hire Me
           </motion.a>
         </motion.div>
+
       </div>
 
-      {/* RIGHT SIDE - VIDEO */}
+      {/* RIGHT SIDE */}
       <div className="hero-right" style={{ position: "relative" }}>
         <motion.video
           ref={videoRef}
@@ -111,16 +118,13 @@ const Hero = () => {
           transition={{ type: "spring", stiffness: 80, damping: 12 }}
         />
 
-        {/* Click-to-unmute button */}
         {isMuted && (
-          <button
-            onClick={handleUnmute}
-            className="unmute-btn"
-          >
+          <button onClick={handleUnmute} className="unmute-btn">
             🔊 Sound
           </button>
         )}
       </div>
+
     </section>
   );
 };

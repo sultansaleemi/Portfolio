@@ -1,0 +1,65 @@
+.animated-link {
+    position: relative;
+    display: inline-flex;
+    gap: 1px;
+  
+    font-family: "Dancing Script", cursive;
+    font-size: 1.15rem;
+    font-weight: 400;
+  
+    color: white;
+    text-decoration: none;
+  
+    cursor: pointer;
+  
+    transition: .3s;
+  }
+  
+  .animated-letter {
+    display: inline-block;
+  }
+  
+  .animated-link::after {
+  
+    content: "";
+  
+    position: absolute;
+  
+    left: 0;
+    bottom: -6px;
+  
+    width: 0%;
+  
+    height: 2px;
+  
+    background: linear-gradient(
+      90deg,
+      #7c7cff,
+      #80d4ff,
+      #7c7cff
+    );
+  
+    background-size: 200% 100%;
+  
+    transition: width .35s ease;
+  }
+  
+  .animated-link:hover::after{
+  
+    width:100%;
+  
+    animation:gradientMove 2s linear infinite;
+  
+  }
+  
+  @keyframes gradientMove{
+  
+  0%{
+  background-position:0%;
+  }
+  
+  100%{
+  background-position:200%;
+  }
+  
+  }

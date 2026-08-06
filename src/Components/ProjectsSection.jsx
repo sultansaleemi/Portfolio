@@ -1,8 +1,7 @@
 import "./ProjectsSection.css";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import AnimatedTextLink from "./AnimatedTextLink";
-
+import AnimatedLink from "./AnimatedLink";
 import portfolio from "../assets/hbeecherhicks-portfolio.png";
 import ecommerce from "../assets/furnitureconcepts.png";
 import eventis from "../assets/eventis-project.png";
@@ -12,31 +11,34 @@ const projects = [
     title: "Personal Portfolio Website",
     description:
       "WordPress + Elementor based portfolio designed for client attraction and personal branding.",
-    result: "Increased client inquiries and improved personal branding.",
+    result: "3x increase in client inquiries",
     image: portfolio,
     tech: ["WordPress", "Elementor", "GSAP"],
     live: "https://hbeecherhicks.com",
     slug: "portfolio-site",
+    icon: "🚀",
   },
   {
     title: "WooCommerce Store",
     description:
-      "High-performance eCommerce store built with WooCommerce and Elementor.",
-    result: "Improved checkout flow and conversion rate.",
+      "High-performance eCommerce store built with optimized UX and conversion flow.",
+    result: "Improved conversion rate significantly",
     image: ecommerce,
     tech: ["WordPress", "WooCommerce", "Elementor"],
     live: "https://furnitureconcepts.com",
     slug: "woocommerce-store",
+    icon: "🛒",
   },
   {
-    title: "Event Booking Website",
+    title: "Event Booking Platform",
     description:
-      "Booking system with modern UI and smooth user experience.",
-    result: "Simplified booking process for users.",
+      "Modern booking system with simplified UX and structured flow.",
+    result: "Faster booking & reduced drop-offs",
     image: eventis,
-    tech: ["WordPress", "Custom UI", "Elementor"],
-    live: "https://eventis.com",
+    tech: ["WordPress", "Custom UI"],
+    live: "https://eventisdmc.com",
     slug: "event-booking",
+    icon: "📅",
   },
 ];
 
@@ -46,70 +48,73 @@ const ProjectsSection = () => {
 
       {/* HEADER */}
       <div className="projects-header">
-        <h2>Featured Projects</h2>
-
+        <h2>Featured <span>Case Studies</span></h2>
         <p>
-          Real WordPress & Elementor projects focused on performance, UX, and business results.
+          Real business problems solved with WordPress, UX & performance optimization.
         </p>
 
         <Link to="/projects" className="view-all-link">
-          Explore All Projects →
+         <span className="flex"> <AnimatedLink
+   to="/projects"
+   text="View All Projects →"
+/></span>
         </Link>
       </div>
 
-      {/* TIMELINE */}
-      <div className="timeline">
+      {/* CARDS */}
+      <div className="projects-grid">
 
         {projects.map((p, i) => (
           <motion.div
             key={i}
-            className={`timeline-item ${i % 2 === 0 ? "right" : "left"}`}
-            initial={{ opacity: 0, y: 70 }}
+            className="project-card"
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
 
-            <div className="timeline-card">
+            {/* IMAGE */}
+            <div className="project-image">
+              <img src={p.image} alt={p.title} />
+              <div className="overlay" />
+              <div className="icon-badge">{p.icon}</div>
+            </div>
 
-              {/* IMAGE */}
-              <div className="timeline-image">
-                <img src={p.image} alt={p.title} />
-                <div className="image-overlay" />
+            {/* CONTENT */}
+            <div className="project-content">
+
+              <span className="tag">CASE STUDY</span>
+
+              <h3>{p.title}</h3>
+
+              <p className="desc">{p.description}</p>
+
+              {/* RESULT (IMPORTANT) */}
+              <div className="result">
+                <span>Result:</span> {p.result}
               </div>
 
-              {/* CONTENT */}
-              <div className="timeline-content">
+              {/* TECH */}
+              <div className="tech">
+                {p.tech.map((t, idx) => (
+                  <span key={idx}>{t}</span>
+                ))}
+              </div>
 
-                <span className="tag">WORDPRESS • ELEMENTOR</span>
-
-                <h3>{p.title}</h3>
-
-                <p className="desc">{p.description}</p>
-
-                <p className="result">✨ {p.result}</p>
-
-                <div className="tech">
-                  {p.tech.map((t, idx) => (
-                    <span key={idx}>{t}</span>
-                  ))}
-                </div>
-
-                {/* ACTION LINKS */}
-                <div className="project-buttons">
-
-                  <AnimatedTextLink
-                    text="Visit Live Site"
-                    href={p.live}
-                    target="_blank"
-                  />
-
-                  <AnimatedTextLink
-                    text="View Case Study"
-                    href={`#/projects/${p.slug}`}
-                  />
-
-                </div>
+              {/* BUTTONS */}
+              <div className="buttons">
+               <AnimatedLink
+                href={p.live}
+                text="Live Site"
+                target="_blank"
+                />
+                - - -
+               <AnimatedLink
+                to={`/projects/${p.slug}`}
+                text="Case Study"
+                />
+              
 
               </div>
 
@@ -119,6 +124,7 @@ const ProjectsSection = () => {
         ))}
 
       </div>
+
     </section>
   );
 };

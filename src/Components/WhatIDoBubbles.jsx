@@ -57,7 +57,7 @@ const WhatIDoBubbles = () => {
      
 
       {/* CONTENT */}
-      <h2 className="section-title">Professional Expertise</h2>
+      <h2 className="section-title">Professional <span>Expertise</span></h2>
 
       <p className="section-subtitle">
         Delivering high-quality web solutions focused on performance, design, and business growth.

@@ -1,155 +1,46 @@
-.contact-modern {
-  padding: 120px 20px;
-  background: rgba(10, 14, 25, 0.95);
-  color: #fff;
-  text-align: center;
-}
-
-.contact-inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.contact-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 800;
-  line-height: 1.1;
-}
-
-.contact-title span {
-  color: #4f46e5;
-}
-
-.contact-text {
-  margin-top: 20px;
-  font-size: 1.1rem;
-  color: #cbd5e1;
-  max-width: 600px;
-  margin-inline: auto;
-}
-
-.contact-actions {
-  margin-top: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.contact-btn {
-  padding: 16px 32px;
-  border-radius: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-/* Primary */
-.contact-btn.primary {
-  background: #4f46e5;
-  color: #fff;
-  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
-}
-
-.contact-btn.primary:hover {
-  background: #6366f1;
-}
-
-/* Secondary */
-.contact-btn.secondary {
-  background: #1e293b;
-  color: #fff;
-  border: 1px solid #334155;
-}
-
-.contact-btn.secondary:hover {
-  border-color: #4f46e5;
-}
-
-/* Ghost */
-.contact-btn.ghost {
-  background: transparent;
-  color: #cbd5e1;
-  border: 1px dashed #334155;
-}
-
-.contact-btn.ghost:hover {
-  color: #fff;
-  border-color: #6366f1;
-}
-
-.contact-foot {
-  margin-top: 60px;
-  font-size: 0.95rem;
-  color: #94a3b8;
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-  .contact-actions {
-    flex-direction: column;
-  }
-}
+/* MAIN */
 .contact-modern {
   position: relative;
-  padding: 120px 20px;
-
-  color: #fff;
+  padding: 140px 20px;
+  background: #05070f;
+  color: white;
   overflow: hidden;
 }
 
-/* ================= CODE BACKGROUND ================= */
+/* 🔥 CURSOR GLOW */
+.cursor-glow {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(124,124,255,0.25), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
 
+/* CODE BG */
 .code-layer {
   position: absolute;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
+  opacity: 0.07;
 }
 
 .code-stream {
   position: absolute;
-  font-family: "Fira Code", monospace;
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: #dadada;
-  opacity: 0.12;
-  filter: blur(0.4px);
+  font-family: monospace;
   white-space: pre;
-  animation: floatCode 22s linear infinite;
+  animation: floatCode 30s linear infinite;
 }
 
-/* Different streams = depth */
-.stream-1 {
-  top: 10%;
-  left: 5%;
-  animation-duration: 26s;
-}
-
-.stream-2 {
-  top: 40%;
-  left: 55%;
-  animation-duration: 30s;
-}
-
-.stream-3 {
-  top: 70%;
-  left: 25%;
-  animation-duration: 34s;
-}
+.stream-1 { top: 10%; left: 5%; }
+.stream-2 { top: 60%; left: 60%; }
 
 @keyframes floatCode {
-  from {
-    transform: translateY(120%) translateX(0);
-  }
-  to {
-    transform: translateY(-160%) translateX(-40px);
-  }
+  from { transform: translateY(100%); }
+  to { transform: translateY(-120%); }
 }
 
-/* ================= CONTENT ================= */
-
+/* CONTENT */
 .contact-inner {
   position: relative;
   z-index: 2;
@@ -158,42 +49,65 @@
   text-align: center;
 }
 
+/* 🔥 TYPING HEADING */
 .contact-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 800;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: monospace;
 }
 
-.contact-title span {
-  color: #4f46e5;
+.code-line {
+  color: #7c7cff;
 }
 
+.typing {
+  color: #4ade80;
+}
+
+/* TEXT */
 .contact-text {
   margin-top: 20px;
   color: #cbd5e1;
-  max-width: 600px;
-  margin-inline: auto;
 }
 
+/* 🔥 TERMINAL */
+.terminal {
+  margin-top: 40px;
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  font-family: monospace;
+  color: #94a3b8;
+}
+
+.terminal span {
+  color: #4ade80;
+}
+
+.terminal .success {
+  color: #22c55e;
+}
+
+/* BUTTONS */
 .contact-actions {
-  margin-top: 50px;
+  margin-top: 40px;
   display: flex;
+  gap: 15px;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
 }
 
 .contact-btn {
-  padding: 16px 32px;
-  border-radius: 14px;
+  padding: 12px 20px;
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-/* Buttons */
 .contact-btn.primary {
   background: #4f46e5;
-  color: #fff;
+  color: white;
 }
 
 .contact-btn.secondary {
@@ -202,19 +116,16 @@
 }
 
 .contact-btn.ghost {
-  border: 1px dashed #334155;
-  color: #94a3b8;
+  border: 1px dashed #22c55e;
+  color: #22c55e;
 }
 
+.contact-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* FOOT */
 .contact-foot {
-  margin-top: 60px;
-  font-size: 0.95rem;
+  margin-top: 40px;
   color: #94a3b8;
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-  .contact-actions {
-    flex-direction: column;
-  }
 }

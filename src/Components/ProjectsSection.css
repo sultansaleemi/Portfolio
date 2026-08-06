@@ -1,209 +1,138 @@
-/* =========================
-   PROJECT SECTION (UPGRADED)
-========================= */
-
 .projects-section {
   padding: 120px 60px;
-  color: white;
-  position: relative;
   /* background: radial-gradient(circle at top, #070a12, #0b1020); */
-  overflow: hidden;
+  color: white;
 }
 
-/* subtle futuristic grid */
-.projects-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(124,124,255,0.12) 1px, transparent 1px);
-  background-size: 50px 50px;
-  opacity: 0.05;
-  pointer-events: none;
-}
-
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 .projects-header {
   text-align: center;
-  margin-bottom: 90px;
+  margin-bottom: 70px;
 }
 
 .projects-header h2 {
   font-size: 3rem;
-  background: linear-gradient(135deg, #7c7cff, #80d4ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, #ffffff, #80d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.projects-header h2 span{
+  background: linear-gradient(90deg, #7c7cff, #80d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .projects-header p {
   opacity: 0.7;
   max-width: 650px;
   margin: 10px auto;
-  line-height: 1.6;
 }
 
-/* VIEW ALL BUTTON (premium CTA) */
-/* .view-all-btn {
+.view-all-link {
   display: inline-block;
-  margin-top: 22px;
-  padding: 12px 24px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #7c7cff, #4f46e5);
-  color: #fff;
+  margin-top: 12px;
+  color: #80d4ff;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(124,124,255,0.25);
 }
 
-.view-all-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 45px rgba(124,124,255,0.4);
-} */
-
-/* =========================
-   TIMELINE (MODERNIZED)
-========================= */
-
-.timeline {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 90px;
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
-/* center line (subtle) */
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(to bottom, #7c7cff, transparent);
-  transform: translateX(-50%);
-  opacity: 0.3;
-}
-
-/* ITEM */
-.timeline-item {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-}
-
-.timeline-item.left {
-  justify-content: flex-start;
-}
-
-/* DOT */
-.timeline-dot {
-  position: absolute;
-  left: 50%;
-  top: 40px;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  background: #7c7cff;
-  border-radius: 50%;
-  box-shadow: 0 0 15px #7c7cff;
-}
-
-/* =========================
-   CARD (REDESIGNED)
-========================= */
-
-.timeline-card {
-  width: 42%;
-  display: flex;
-  flex-direction: column;
-  background: rgba(255,255,255,0.03);
+/* CARD */
+.project-card {
+  background: rgba(255,255,255,0.04);
   border: 1px solid rgba(124,124,255,0.15);
   border-radius: 18px;
   overflow: hidden;
-  transition: all 0.35s ease;
   backdrop-filter: blur(12px);
-}
-
-.timeline-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(124,124,255,0.4);
-  box-shadow: 0 25px 70px rgba(0,0,0,0.5);
-}
-
-/* =========================
-   IMAGE (FIX + PREMIUM LOOK)
-========================= */
-
-.timeline-image {
-  height: 220px;
-  overflow: hidden;
+  transition: 0.3s ease;
   position: relative;
 }
 
-.timeline-image img {
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(124,124,255,0.4);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+/* IMAGE */
+.project-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
-  filter: saturate(1.1) contrast(1.05);
-  transition: transform 0.6s ease;
+  transition: 0.5s ease;
 }
 
-.timeline-card:hover .timeline-image img {
+.project-card:hover img {
   transform: scale(1.08);
 }
 
-/* overlay glow */
-.image-overlay {
+/* ICON BADGE (NEW PREMIUM TOUCH) */
+.icon-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+/* OVERLAY */
+.overlay {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle, rgba(124,124,255,0.2), transparent 70%);
-  opacity: 0;
-  transition: 0.3s ease;
 }
 
-.timeline-card:hover .image-overlay {
-  opacity: 1;
-}
-
-/* =========================
-   CONTENT
-========================= */
-
-.timeline-content {
+/* CONTENT */
+.project-content {
   padding: 18px;
 }
 
 .tag {
-  font-size: 11px;
-  letter-spacing: 2px;
+  font-size: 10px;
   color: #7c7cff;
-  opacity: 0.9;
+  letter-spacing: 2px;
 }
 
-.timeline-content h3 {
+.project-content h3 {
   margin: 8px 0;
   font-size: 1.3rem;
 }
 
-.timeline-content p {
+/* DESCRIPTION */
+.desc {
   font-size: 0.9rem;
   opacity: 0.75;
   line-height: 1.6;
 }
 
+/* RESULT (IMPORTANT VISUAL FOCUS) */
 .result {
-  margin-top: 8px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(128,212,255,0.08);
+  border: 1px solid rgba(128,212,255,0.25);
   color: #80d4ff;
   font-size: 0.85rem;
 }
 
-/* =========================
-   TECH TAGS
-========================= */
-
+/* TECH */
 .tech {
   margin-top: 12px;
   display: flex;
@@ -213,129 +142,34 @@
 }
 
 .tech span {
-  font-size: 11px;
+  font-size: 10px;
   padding: 4px 10px;
   border-radius: 999px;
   background: rgba(124,124,255,0.12);
-  border: 1px solid rgba(124,124,255,0.25);
 }
 
-/* =========================
-   BUTTONS (NOW CLEAN + FLEXIBLE)
-========================= */
-
-.project-buttons {
-  display: flex;
-  gap: 10px;
+/* BUTTONS */
+.buttons {
   margin-top: 14px;
-}
-
-/* animated link container fix */
-.animated-link {
-  display: inline-flex;
-  font-weight: 600;
-  font-size: 0.9rem;
-  gap: 1px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-  .timeline::before {
-    left: 18px;
-  }
-
-  .timeline-item,
-  .timeline-item.left {
-    justify-content: flex-start;
-  }
-
-  .timeline-card {
-    width: 100%;
-    margin-left: 35px;
-  }
-
-  .timeline-dot {
-    left: 18px;
-  }
-}
-
-
-/* =========================
-   PROJECT BUTTON LINKS
-========================= */
-
-.project-buttons {
   display: flex;
-  gap: 18px;
-  margin-top: 18px;
+  gap: 25px;
   justify-content: center;
 }
 
-/* base link style */
-.project-buttons a {
-  position: relative;
-  display: inline-flex;
-  gap: 1px;
-
-  font-size: 0.95rem;
-  font-weight: 600;
-
-  color: #fff;
+.buttons a {
+  font-size: 0.85rem;
+  color: white;
   text-decoration: none;
-
-  padding: 4px 0;
-  cursor: pointer;
-
-  transition: 0.25s ease;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-/* underline glow */
-.project-buttons a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-
-  width: 0%;
-  height: 2px;
-
-  background: linear-gradient(90deg, #7c7cff, #80d4ff);
-  transition: 0.35s ease;
-  box-shadow: 0 0 8px rgba(124,124,255,0.35);
-}
-
-.project-buttons a:hover {
+.buttons a:hover {
   color: #80d4ff;
   transform: translateY(-2px);
 }
+.project-content .animated-link{
 
-.project-buttons a:hover::after {
-  width: 100%;
-}
+  font-size: 13px;
 
-/* =========================
-   OPTIONAL MICRO INTERACTION
-   (makes it feel premium)
-========================= */
-
-.project-buttons a:active {
-  transform: scale(0.96);
-}
-
-/* =========================
-   CARD POLISH (small fix)
-========================= */
-
-.timeline-card {
-  padding-bottom: 14px;
-}
-
-/* subtle glow hover for entire card */
-.timeline-card:hover {
-  box-shadow: 0 20px 60px rgba(124,124,255,0.12);
 }

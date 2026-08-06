@@ -1,0 +1,411 @@
+/* =========================
+   WHY HIRE ME SECTION
+========================= */
+
+.why-section {
+    position: relative;
+    padding: 120px 60px;
+    color: white;
+    overflow: hidden;
+  }
+  
+  
+  /* subtle developer grid background */
+  
+  .why-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  
+    background-image:
+      linear-gradient(
+        rgba(124,124,255,0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(124,124,255,0.05) 1px,
+        transparent 1px
+      );
+  
+    background-size: 60px 60px;
+    opacity: .35;
+    pointer-events:none;
+  }
+  
+  
+  
+  /* =========================
+     HEADER
+  ========================= */
+  
+  .why-header {
+  
+    position: relative;
+    z-index:2;
+  
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+  
+  }
+  
+  
+  .section-tag {
+  
+    display:inline-block;
+  
+    color:#7c7cff;
+  
+    font-size:24px;
+    letter-spacing:4px;
+  
+    margin-bottom:20px;
+  
+    text-transform:uppercase;
+  
+  }
+  
+  
+  
+  .why-header h2 {
+  
+    font-size:clamp(2.3rem,5vw,2.8rem);
+  
+    line-height:1.2;
+  
+    font-weight:800;
+  
+    margin-bottom:20px;
+  
+    background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #80d4ff
+    );
+  
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  
+  }
+  
+  
+  
+  .why-header h2 span {
+  
+    background:
+    linear-gradient(
+      90deg,
+      #7c7cff,
+      #80d4ff
+    );
+  
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  
+  }
+  
+  
+  
+  .why-header p {
+  
+    color:#cbd5e1;
+  
+    font-size:1.1rem;
+  
+    line-height:1.8;
+  
+    max-width:650px;
+  
+    margin:auto;
+  
+  }
+  
+  
+  
+  /* =========================
+     STATS GRID
+  ========================= */
+  
+  
+  .stats-grid {
+  
+    position:relative;
+  
+    z-index:2;
+  
+    margin-top:70px;
+  
+    display:grid;
+  
+    grid-template-columns:
+    repeat(4,1fr);
+  
+    gap:25px;
+  
+  }
+  
+  
+  
+  .stat-card {
+  
+    position:relative;
+  
+    padding:35px 25px;
+  
+    border-radius:22px;
+  
+  
+    background:
+    rgba(255,255,255,0.04);
+  
+  
+    border:
+    1px solid rgba(124,124,255,.18);
+  
+  
+    backdrop-filter:blur(15px);
+  
+  
+    transition:.35s ease;
+  
+  
+    overflow:hidden;
+  
+  }
+  
+  
+  
+  /* glow effect */
+  
+  .stat-card::before {
+  
+    content:"";
+  
+    position:absolute;
+  
+    width:120px;
+    height:120px;
+  
+    top:-50px;
+    right:-50px;
+  
+  
+    background:#7c7cff;
+  
+    filter:blur(70px);
+  
+    opacity:.25;
+  
+  }
+  
+  
+  
+  .stat-card:hover {
+  
+  
+    border-color:#80d4ff;
+  
+  
+    box-shadow:
+    0 20px 60px
+    rgba(124,124,255,.18);
+  
+  
+  }
+  
+  
+  
+  /* numbers */
+  
+  
+  .stat-card h3 {
+  
+    font-size:3rem;
+  
+    margin:0 0 10px;
+  
+  
+    background:
+    linear-gradient(
+      90deg,
+      #7c7cff,
+      #80d4ff
+    );
+  
+  
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  
+  
+  }
+  
+  
+  
+  .stat-card h4 {
+  
+    font-size:1.1rem;
+  
+    margin-bottom:12px;
+  
+  }
+  
+  
+  
+  .stat-card p {
+  
+    color:#94a3b8;
+  
+    line-height:1.6;
+  
+    font-size:.9rem;
+  
+  }
+  
+  
+  
+  /* =========================
+     SKILLS BADGES
+  ========================= */
+  
+  
+  .skill-badges {
+  
+  
+    position:relative;
+  
+    z-index:2;
+  
+  
+    margin-top:60px;
+  
+  
+    display:flex;
+  
+    justify-content:center;
+  
+    flex-wrap:wrap;
+  
+    gap:14px;
+  
+  
+  }
+  
+  
+  
+  .skill-badges span {
+  
+  
+    padding:10px 18px;
+  
+    border-radius:999px;
+  
+  
+    background:
+    rgba(124,124,255,.12);
+  
+  
+    border:
+    1px solid rgba(124,124,255,.25);
+  
+  
+    color:#e2e8f0;
+  
+  
+    font-size:.85rem;
+  
+  
+    transition:.3s ease;
+  
+  
+  }
+  
+  
+  
+  .skill-badges span:hover {
+  
+  
+    transform:translateY(-4px);
+  
+  
+    background:
+    rgba(124,124,255,.25);
+  
+  
+    color:white;
+  
+  
+    box-shadow:
+    0 10px 30px
+    rgba(124,124,255,.25);
+  
+  
+  }
+  
+  
+  
+  
+  /* =========================
+     TABLET
+  ========================= */
+  
+  
+  @media(max-width:1100px){
+  
+  
+  .stats-grid{
+  
+  grid-template-columns:
+  repeat(2,1fr);
+  
+  }
+  
+  
+  }
+  
+  
+  
+  
+  /* =========================
+     MOBILE
+  ========================= */
+  
+  
+  @media(max-width:650px){
+  
+  
+  .why-section{
+  
+  padding:
+  80px 25px;
+  
+  }
+  
+  
+  
+  .stats-grid{
+  
+  grid-template-columns:
+  1fr;
+  
+  }
+  
+  
+  
+  .why-header h2{
+  
+  font-size:2.2rem;
+  
+  }
+  
+  
+  .skill-badges{
+  
+  justify-content:flex-start;
+  
+  }
+  
+  
+  
+  }
