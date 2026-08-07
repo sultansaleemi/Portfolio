@@ -1,0 +1,992 @@
+/* ======================================
+   ABOUT PAGE PREMIUM THEME
+====================================== */
+
+.about-page {
+    position: relative;
+    padding: 120px 60px;
+    color: white;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top left, rgba(124, 124, 255, .15), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(128, 212, 255, .12), transparent 35%);
+}
+
+
+/* subtle background grid */
+
+.about-page::before {
+
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .03) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(255, 255, 255, .03) 1px,
+            transparent 1px);
+
+    background-size: 60px 60px;
+
+    opacity: .25;
+
+    pointer-events: none;
+}
+
+/* =====================================
+   STORY TEXT PREMIUM STYLE
+===================================== */
+
+.story-text {
+
+    color: #cbd5e1;
+
+    font-size: 1.05rem;
+
+    line-height: 1.9;
+
+    font-weight: 400;
+
+    letter-spacing: 0.2px;
+
+}
+
+.story-glass {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.02)
+        );
+
+    backdrop-filter: blur(20px);
+
+    border-radius: 28px;
+
+    padding: 40px;
+
+}
+
+/* Highlight important words */
+
+.story-text strong {
+
+    color: #80d4ff;
+
+    font-weight: 600;
+
+    background: linear-gradient(
+        90deg,
+        #7c7cff,
+        #80d4ff
+    );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+/* subtle hover interaction */
+
+.story-text strong:hover {
+
+    text-shadow:
+        0 0 15px rgba(128,212,255,.5);
+
+}
+
+
+
+/* ======================================
+     HEADER
+  ====================================== */
+
+
+.about-header {
+
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+
+
+.about-header span {
+
+    color: #80d4ff;
+
+    letter-spacing: 4px;
+
+    font-size: .8rem;
+
+}
+
+
+.about-header h1 {
+
+    margin-top: 20px;
+
+    font-size: clamp(2.5rem, 5vw, 2.5rem);
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+}
+
+
+.about-header h1 .build {
+
+    background: linear-gradient(90deg,
+            #7c7cff,
+            #80d4ff);
+
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: clamp(2.5rem, 5vw, 2.5rem);
+
+}
+
+
+.about-header p {
+
+    margin-top: 25px;
+
+    max-width: 650px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    color: #cbd5e1;
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+}
+
+
+
+
+
+/* ======================================
+   PROFILE SECTION
+  ====================================== */
+
+
+.about-profile {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: 380px 1fr;
+
+    gap: 40px;
+
+    max-width: 1200px;
+
+    margin: 90px auto;
+
+}
+
+
+
+/* GLASS COMMON */
+
+
+.profile-glass,
+.story-glass {
+
+
+    background:
+        rgba(255, 255, 255, .04);
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 25px;
+
+    border: 1px solid rgba(255, 255, 255, .12);
+
+    padding: 35px;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+
+/* animated border */
+
+.profile-glass::before,
+.story-glass::before,
+.expert-card::before,
+.journey-card::before {
+
+
+    content: "";
+
+    position: absolute;
+
+    inset: -2px;
+
+    background:
+
+        linear-gradient(120deg,
+            transparent,
+            #7c7cff,
+            #80d4ff,
+            transparent);
+
+    opacity: 0.2 !important;
+
+    transition: 7.4s;
+
+    z-index: -1;
+
+}
+
+
+.profile-glass:hover::before,
+.story-glass:hover::before,
+.expert-card:hover::before,
+.journey-card:hover::before {
+
+    opacity: .8;
+
+    animation: borderMove 3s linear infinite;
+
+}
+
+
+
+@keyframes borderMove {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+
+
+
+/* ======================================
+   PROFILE CARD
+  ====================================== */
+
+
+.profile-image {
+
+    width: 170px;
+    height: 170px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    padding: 5px;
+
+    background:
+        linear-gradient(135deg,
+            #7c7cff,
+            #80d4ff);
+
+
+    box-shadow:
+
+        0 0 50px rgba(124, 124, 255, .5);
+
+}
+
+
+
+.profile-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+}
+
+
+
+
+.profile-glass h2 {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    font-size: 1.5rem;
+
+    background: linear-gradient(90deg, #7c7cff, #80d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+.profile-glass h2, .story-glass h2{
+
+    background: linear-gradient(90deg, #ffffff, #80d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.profile-glass h2 span , .story-glass h2 span{
+    
+    background: linear-gradient(90deg, #7c7cff, #80d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.profile-glass p {
+
+    text-align: center;
+
+    color: #94a3b8;
+
+}
+
+
+
+.availability {
+
+    margin: 20px auto;
+
+    width: max-content;
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    background: rgba(74, 222, 128, .12);
+
+    color: #4ade80;
+
+    font-size: .85rem;
+
+}
+
+
+
+
+
+.profile-stats {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+}
+
+
+
+.profile-stats div {
+
+    text-align: center;
+
+}
+
+
+
+.profile-stats h3 {
+
+    font-size: 1.8rem;
+
+    background:
+        linear-gradient(90deg,
+            #7c7cff,
+            #80d4ff);
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+}
+
+
+
+.profile-stats span {
+
+    font-size: .75rem;
+
+    color: #94a3b8;
+
+}
+
+
+
+
+
+/* ======================================
+   STORY
+  ====================================== */
+
+
+.story-glass h2 {
+
+    font-size: 2rem;
+
+    margin-bottom: 20px;
+
+}
+
+
+.story-glass p {
+
+    color: #cbd5e1;
+
+    line-height: 1.9;
+
+    font-size: 1.05rem;
+
+}
+
+
+
+
+
+/* ======================================
+   EXPERTISE
+  ====================================== */
+
+
+.expertise,
+.skills-area,
+.hire-area,
+.journey {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+
+
+.expertise h2,
+.skills-area h2,
+.hire-area h2,
+.journey h2 {
+
+    font-size: 3rem;
+  background: linear-gradient(90deg, #ffffff, #80d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+.expertise h2 span,
+.skills-area h2 span,
+.hire-area h2 span,
+.journey h2 span
+{
+    background: linear-gradient(90deg, #7c7cff, #80d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+
+
+.expertise-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+
+.expert-card {
+
+
+    background:
+        rgba(255, 255, 255, .04);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    border: 1px solid rgba(255, 255, 255, .1);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .4s;
+
+}
+
+
+
+.expert-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, .4);
+
+}
+
+
+
+.expert-card svg {
+
+    font-size: 35px;
+
+    color: #80d4ff;
+
+}
+
+
+
+.expert-card h3 {
+
+    margin-top: 20px;
+
+}
+
+
+
+.expert-card p {
+
+    color: #94a3b8;
+
+    line-height: 1.6;
+
+}
+
+
+
+
+
+/* ======================================
+   SKILLS
+  ====================================== */
+
+
+.skills-wrapper {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+
+}
+
+
+
+.skill-item {
+
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+
+    padding: 14px 22px;
+
+    border-radius: 50px;
+
+
+    background:
+        rgba(124, 124, 255, .12);
+
+
+    border: 1px solid rgba(124, 124, 255, .25);
+
+
+    transition: .3s;
+
+}
+
+
+
+.skill-item svg {
+
+    color: #80d4ff;
+
+}
+
+
+
+.skill-item:hover {
+
+    background: #7c7cff;
+
+    transform: translateY(-5px);
+
+}
+
+
+
+
+
+/* ======================================
+   WHY HIRE
+  ====================================== */
+
+
+.hire-list {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.hire-list div {
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, .04);
+
+    border: 1px solid rgba(255, 255, 255, .1);
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+
+}
+
+
+.hire-list svg {
+
+    color: #4ade80;
+
+}
+
+
+
+
+
+/* ======================================
+   JOURNEY
+  ====================================== */
+
+
+.journey-wrapper {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.journey-card {
+
+    background:
+
+        rgba(255, 255, 255, .04);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255, 255, 255, .1);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+
+.journey-card span {
+
+    color: #80d4ff;
+
+    font-size: 1.5rem;
+
+    font-weight: bold;
+
+}
+
+
+
+.journey-card p {
+
+    color: #94a3b8;
+
+    line-height: 1.6;
+
+}
+
+
+
+
+
+/* ======================================
+   MOBILE
+  ====================================== */
+
+
+@media(max-width:900px) {
+
+
+    .about-page {
+
+        padding: 80px 25px;
+
+    }
+
+
+    .about-profile {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .expertise-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .profile-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .hire-list {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .journey-wrapper {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .about-header h1 {
+
+        font-size: 2.5rem;
+
+    }
+
+
+
+}
+/* =====================================
+   FLOATING PARTICLES
+===================================== */
+
+
+.particles span{
+
+    position:absolute;
+    
+    width:6px;
+    height:6px;
+    
+    background:#80d4ff;
+    
+    border-radius:50%;
+    
+    opacity:.4;
+    
+    animation:floatParticles 12s infinite linear;
+    
+    }
+    
+    
+    
+    .particles span:nth-child(1){left:10%;top:20%;}
+    .particles span:nth-child(2){left:20%;top:70%;}
+    .particles span:nth-child(3){left:40%;top:30%;}
+    .particles span:nth-child(4){left:70%;top:60%;}
+    .particles span:nth-child(5){left:85%;top:20%;}
+    
+    
+    
+    .particles span:nth-child(n+6){
+    
+    left:calc(random()*100%);
+    top:calc(random()*100%);
+    
+    }
+    
+    
+    
+    @keyframes floatParticles{
+    
+    
+    0%{
+    
+    transform:translateY(0px);
+    
+    }
+    
+    
+    50%{
+    
+    transform:translateY(-80px);
+    
+    }
+    
+    
+    100%{
+    
+    transform:translateY(0px);
+    
+    }
+    
+    
+    }
+    
+    
+    
+    
+    /* =====================================
+     UAE PREMIUM BADGE
+    ===================================== */
+    
+    
+    .uae-badge{
+    
+    display:flex;
+    
+    align-items:center;
+    
+    gap:10px;
+    
+    margin:25px auto;
+    
+    width:max-content;
+    
+    
+    padding:10px 20px;
+    
+    
+    border-radius:50px;
+    
+    
+    background:
+    
+    linear-gradient(
+    135deg,
+    rgba(74,222,128,.15),
+    rgba(128,212,255,.15)
+    );
+    
+    
+    border:1px solid rgba(74,222,128,.4);
+    
+    
+    color:#4ade80;
+    
+    
+    font-size:.85rem;
+    
+    
+    box-shadow:
+    
+    0 0 30px rgba(74,222,128,.25);
+    
+    
+    animation:pulseBadge 3s infinite;
+    
+    
+    }
+    
+    
+    
+    .uae-badge svg{
+    
+    font-size:16px;
+    
+    }
+    
+    
+    
+    
+    @keyframes pulseBadge{
+    
+    
+    0%{
+    
+    box-shadow:
+    0 0 0 rgba(74,222,128,0);
+    
+    }
+    
+    
+    50%{
+    
+    box-shadow:
+    0 0 35px rgba(74,222,128,.4);
+    
+    }
+    
+    
+    100%{
+    
+    box-shadow:
+    0 0 0 rgba(74,222,128,0);
+    
+    }
+    
+    
+    }

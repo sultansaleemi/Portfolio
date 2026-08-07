@@ -1,0 +1,495 @@
+/* ======================================
+   CONTACT PAGE PREMIUM THEME
+====================================== */
+
+.contact-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 60px;
+    color: white;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top left,
+            rgba(124, 124, 255, .18),
+            transparent 35%),
+        radial-gradient(circle at bottom right,
+            rgba(128, 212, 255, .15),
+            transparent 35%);
+}
+
+/* floating glow */
+.contact-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, .08) 1px,
+            transparent 1px);
+    background-size: 45px 45px;
+    opacity: .25;
+    animation: moveGrid 20s linear infinite;
+}
+
+@keyframes moveGrid {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(45px);
+    }
+}
+
+/* ======================================
+HEADER
+====================================== */
+
+.contact-header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 850px;
+    margin: auto;
+}
+
+.contact-header span {
+    color: #80d4ff;
+    letter-spacing: 5px;
+    font-size: .8rem;
+}
+
+.contact-header h1 {
+    margin-top: 20px;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.contact-header h1 span {
+    background: linear-gradient(90deg, #7c7cff, #80d4ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.contact-header p {
+    margin-top: 25px;
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* ======================================
+MAIN WRAPPER
+====================================== */
+
+.contact-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 80px auto 0;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 40px;
+}
+
+/* ======================================
+PROFILE CARD
+====================================== */
+
+.contact-profile {
+    background: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    padding: 35px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.contact-profile::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #7c7cff, #80d4ff);
+    filter: blur(80px);
+    opacity: .35;
+    top: -80px;
+    right: -80px;
+}
+
+.contact-profile:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .5);
+}
+
+/* image */
+.profile-photo {
+    width: 170px;
+    height: 170px;
+    margin: auto;
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7c7cff, #80d4ff);
+    box-shadow: 0 0 50px rgba(124, 124, 255, .5);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.contact-profile h2 {
+    margin-top: 25px;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #fff, #80d4ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.contact-profile h3 {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+.available {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: rgba(74, 222, 128, .15);
+    color: #4ade80;
+    font-size: .85rem;
+}
+
+.profile-info {
+    margin-top: 25px;
+}
+
+.profile-info p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #cbd5e1;
+    margin: 12px 0;
+}
+
+.profile-info svg {
+    color: #80d4ff;
+}
+
+/* ======================================
+BUTTONS
+====================================== */
+
+.contact-actions {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, .15);
+    background: rgba(255, 255, 255, .05);
+    transition: .35s;
+}
+
+.contact-btn:hover {
+    transform: translateY(-5px);
+}
+
+.contact-btn.primary:hover {
+    border-color: #80d4ff;
+    box-shadow: 0 0 25px rgba(128, 212, 255, .4);
+}
+
+.contact-btn.secondary:hover {
+    border-color: #7c7cff;
+}
+
+.contact-btn.ghost:hover {
+    border-color: #4ade80;
+}
+
+/* ======================================
+RIGHT SIDE
+====================================== */
+
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ================================
+   FUTURISTIC FORM CARD
+================================ */
+
+.form-card {
+    position: relative;
+    padding: 35px;
+    border-radius: 28px;
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, .08),
+            rgba(255, 255, 255, .03));
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, .12);
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, .45);
+}
+
+/* animated glow */
+.form-card::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: -120px;
+    right: -120px;
+    background:
+        radial-gradient(circle,
+            rgba(128, 212, 255, .35),
+            transparent 70%);
+    filter: blur(20px);
+}
+
+.form-card h2 {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    background: linear-gradient(90deg, #fff, #80d4ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* ================================
+INPUTS
+================================ */
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 16px;
+    color: white;
+    outline: none;
+    font-size: .95rem;
+    box-sizing: border-box;
+}
+
+/* placeholder */
+.form-card input::placeholder,
+.form-card textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* hover */
+.form-card input:hover,
+.form-card select:hover,
+.form-card textarea:hover {
+    border-color: rgba(128, 212, 255, .5);
+}
+
+/* focus */
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+    border-color: #80d4ff;
+    background: rgba(128, 212, 255, .08);
+    box-shadow: 0 0 25px rgba(128, 212, 255, .25);
+}
+
+/* select */
+.form-card select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.form-card select option {
+    background: #111827;
+    color: white;
+}
+
+/* textarea */
+.form-card textarea {
+    min-height: 140px;
+    resize: none;
+}
+
+/* ================================
+BUTTON
+================================ */
+
+.form-card button {
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    background: linear-gradient(90deg, #7c7cff, #80d4ff);
+    position: relative;
+    overflow: hidden;
+    transition: .35s;
+}
+
+.form-card button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .4),
+            transparent);
+    transform: translateX(-100%);
+    transition: .5s;
+}
+
+.form-card button:hover::before {
+    transform: translateX(100%);
+}
+
+.form-card button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(128, 212, 255, .35);
+}
+
+/* mobile */
+@media (max-width: 600px) {
+    .form-card {
+        padding: 25px;
+    }
+
+    .form-card h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ======================================
+TERMINAL
+====================================== */
+
+.terminal {
+    border-radius: 20px;
+    overflow: hidden;
+    background: #05070f;
+    border: 1px solid rgba(128, 212, 255, .25);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
+}
+
+.terminal-header {
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #94a3b8;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.terminal-header span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #7c7cff;
+}
+
+.terminal-body {
+    padding: 20px;
+    font-family: "Courier New", monospace;
+    min-height: 230px;
+}
+
+.terminal-body p {
+    color: #80d4ff;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.terminal-body form {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.terminal-body label {
+    color: #4ade80;
+}
+
+.terminal-body input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: inherit;
+}
+
+/* ======================================
+MOBILE
+====================================== */
+
+@media (max-width: 900px) {
+    .contact-page {
+        padding: 80px 25px;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-header h1 {
+        font-size: 2.4rem;
+    }
+
+    .contact-actions {
+        flex-direction: column;
+    }
+
+    .contact-btn {
+        justify-content: center !important;
+    }
+}
+
+.form-card select {
+    width: 100%;
+    padding: 15px 18px;
+    margin-bottom: 15px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .15);
+    color: white;
+    outline: none;
+}
+
+.form-card select option {
+    background: #05070f;
+    color: white;
+}

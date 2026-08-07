@@ -52,7 +52,7 @@ const WhatIDoBubbles = () => {
   const [modalService, setModalService] = useState(null);
 
   return (
-    <section className="what-i-do-bubbles">
+    <section id="skills" className="what-i-do-bubbles">
 
      
 

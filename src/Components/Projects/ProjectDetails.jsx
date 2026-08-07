@@ -28,15 +28,6 @@ const projects = {
     tech: ["WordPress", "WooCommerce", "Elementor"]
   },
 
-  "event-booking": {
-    title: "Event Booking Platform",
-    image: eventis,
-    live: "https://eventis.com",
-    problem: "Complicated booking system.",
-    solution: "Simplified UI + dashboard system.",
-    result: "Faster booking process.",
-    tech: ["WordPress", "Custom UI"]
-  },
 
   "event-booking": {
     title: "Eventis DMC — Corporate Destination Management Website",

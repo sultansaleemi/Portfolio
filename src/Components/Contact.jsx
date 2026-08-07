@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { useEffect, useState } from "react";
 import "./Contact.css";
-import resume from "../assets/Sultan_mehmmod.pdf";
+import resume from "../assets/Sultan_mehmood_saleemi_resume.pdf";
 
 const Contact = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
